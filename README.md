@@ -1,6 +1,6 @@
 # CircularProgressView
 
-This view is meant to be a customizable determinate progress view like the standard android indeterminate progress bar.
+This view is meant to be a customizable determinate progress view like the standard android indeterminate progress bar, but highly customizable
 
 It is built with Kotlin and supports heavy customization options and a convenient way to animate progress automatically. You can use XML and Kotlin/Java functions to customize it.
 
