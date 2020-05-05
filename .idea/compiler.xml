@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="DeterminateProgressBar.dpb" target="1.8" />
+      <module name="DeterminateProgressBar.app" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

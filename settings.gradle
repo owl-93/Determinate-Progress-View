@@ -1,2 +1,2 @@
-include ':dpb'
+include ':app'
 rootProject.name = "DeterminateProgressBar"
