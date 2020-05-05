@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircularProgressView">
+        <attr name="maxValue" format="float"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="strokeColor" format="color"/>
+        <attr name="progress" format="float"/>
+        <attr name="startingAngle" format="integer"/>
+        <attr name="drawTrack" format="boolean"/>
+        <attr name="trackColor" format="color"/>
+        <attr name="trackWidth" format="dimension"/>
+        <attr name="trackAlpha" format="integer"/>
+        <attr name="gradientStartColor" format="color"/>
+        <attr name="gradientCenterColor" format="color"/>
+        <attr name="gradientEndColor" format="color"/>
+
+        <attr name="text" format="string"/>
+        <attr name="textEnabled" format="boolean"/>
+        <attr name="textColor" format="color"/>
+        <attr name="textGradientStartColor" format="color"/>
+        <attr name="textGradientCenterColor" format="color"/>
+        <attr name="textGradientEndColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+
+        <attr name="textFormat" format="enum">
+            <enum name="pcnt" value="0"/>
+            <enum name="pcnt_decimal" value="1"/>
+            <enum name="integer" value="3"/>
+            <enum name="progress" value="2"/>
+        </attr>
+
+        <attr name="direction" format="enum">
+            <enum name="cw" value="0"/>
+            <enum name="ccw" value="1"/>
+        </attr>
+
+        <attr name="progressAnimationDuration" format="integer"/>
+        <attr name="animationInterpolator" format="enum">
+            <enum name="declerate" value="0"/>
+            <enum name="accelerate" value="1"/>
+            <enum name="accelerate_decelerate" value="2"/>
+            <enum name="linear" value="3"/>
+            <enum name="anticipate" value="4"/>
+            <enum name="overshoot" value="5"/>
+            <enum name="anticipate_overshoot" value="6"/>
+        </attr>
+
+
+        <!-- stroke gradient items-->
+        <attr name="strokeGradientStyle" format="enum">
+            <enum name="sweep" value="0"/>
+            <enum name="linear" value="1"/>
+            <enum name="radial" value="2"/>
+        </attr>
+
+        <attr name="strokeGradient_linearAngle" format="integer"/>
+
+        <attr name="strokeGradientSize" format="enum">
+            <enum name="view" value="0"/>
+            <enum name="stroke_only" value="1" />
+        </attr>
+
+        <!-- text gradient items-->
+        <attr name="textGradientStyle" format="enum">
+            <enum name="sweep" value="0"/>
+            <enum name="linear" value="1"/>
+            <enum name="radial" value="2"/>
+        </attr>
+
+        <attr name="textGradient_linearAngle" format="integer"/>
+
+        <attr name="textGradientSize" format="enum">
+            <enum name="view" value="0"/>
+            <enum name="text_only" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+</resources>
