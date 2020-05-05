@@ -3,9 +3,10 @@
 
 This view is meant to be a customizable determinate progress view like the standard android indeterminate progress bar, but highly customizable
 
-It is built with Kotlin and supports heavy customization options and a convenient way to animate progress automatically. You can use XML and Kotlin/Java functions to customize it.
-
-![](https://imgur.com/T68WT09.jpg)
+It is built with Kotlin and supports heavy customization options and a convenient way to animate progress automatically. You can use XML and Kotlin/Java functions to customize it. You can check out the very robust [demo app over here](https://github.com/owl-93/Determinate-Progress-View-Demo)
+<p align="center">
+  <img width="460" src="https://imgur.com/T68WT09.jpg">
+</p>
 
 ## Progress Bar Attributes
 | Attribute                    | XML attr                   | XML Type | XML Values                                                                                                       | Kotlin field              | Kotlin Type            | Kotlin Values                      | Default Value         |
@@ -77,3 +78,17 @@ It is built with Kotlin and supports heavy customization options and a convenien
 - Text Gradient Style - the style of the gradient to use when drawing the text with a gradient. If using Gradient.SWEEP, the start color is at 12:00
 - Text Gradient Linear Angle - if using Gradient.LINEAR, or "linear" for the textGradientStyle, the angle at which to apply the linear gradient across the text
 - Text Gradient Size - if using Gradient.LINEAR, Gradient.RADIAL or "linear", "radial", the size of the gradient. If set to TextGradient.VIEW, the gradient colors will be spread across the whole view, but only visible on the text. If set to TextGradient.TEXT_ONLY, the gradient will be confined to the size of the bounding box for the text. See screenshots for clarification
+
+## Examples
+
+<p align="center">
+  <img width="100%" src="https://imgur.com/lSTf03G.jpg">
+</p>
+
+<p align="center">
+  <img width="100%" src="https://imgur.com/XBm86oL.jpg">
+</p>
+
+<p align="center">
+  <img width="75%" src="https://imgur.com/S3JZEGp.jpg">
+</p>
