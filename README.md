@@ -5,7 +5,7 @@ This view is meant to be a customizable determinate progress view like the stand
 
 It is built with Kotlin and supports heavy customization options and a convenient way to animate progress automatically. You can use XML and Kotlin/Java functions to customize it.
 
-[](https://imgur.com/T68WT09)
+![](https://imgur.com/T68WT09)
 
 ## Progress Bar Attributes
 | Attribute                    | XML attr                   | XML Type | XML Values                                                                                                       | Kotlin field              | Kotlin Type            | Kotlin Values                      | Default Value         |
