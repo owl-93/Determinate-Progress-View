@@ -1,5 +1,5 @@
 # DeterminateProgressView
-[![](https://jitci.com/gh/owl-93/DeterminateProgressView/svg)](https://jitci.com/gh/owl-93/DeterminateProgressView)
+[![](https://jitpack.io/v/owl-93/DeterminateProgressView.svg)](https://jitci.com/gh/owl-93/DeterminateProgressView)
 
 This view is meant to be a customizable determinate progress view like the standard android indeterminate progress bar, but highly customizable
 
