@@ -8,6 +8,27 @@ It is built with Kotlin and supports heavy customization options and a convenien
   <img width="460" src="https://imgur.com/T68WT09.jpg">
 </p>
 
+## Installing
+
+1. Add the JitPack repo to your project level build.gradle
+
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+2. Add the library to your app build.gradle
+
+```gradle
+dependencies {
+    implementation 'com.github.owl-93:DeterminateProgressView:v1.0'
+}
+```
+
 ## Example GIFS
 
 ### General options
