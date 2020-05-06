@@ -1,5 +1,5 @@
 # DeterminateProgressView
-[![](https://jitci.com/gh/owl-93/DeterminateProgressView/svg)](https://jitci.com/gh/owl-93/DeterminateProgressView)
+[![](https://jitpack.io/v/owl-93/DeterminateProgressView.svg)](https://jitci.com/gh/owl-93/DeterminateProgressView)
 
 This view is meant to be a customizable determinate progress view like the standard android indeterminate progress bar, but highly customizable
 
@@ -8,23 +8,24 @@ It is built with Kotlin and supports heavy customization options and a convenien
   <img width="460" src="https://imgur.com/T68WT09.jpg">
 </p>
 
-## Adding to your project
-1. Add the JitPack repository in your project build.gradle
+## Installing
+
+1. Add the JitPack repo to your project level build.gradle
 
 ```gradle
 allprojects {
-   	repositories {
-   		...
-   		maven { url 'https://jitpack.io' }
-   	}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
 }
 ```
 
-2. Add the version to your android dependencies in your app build.gradle
+2. Add the library to your app build.gradle
 
 ```gradle
 dependencies {
-	implementation 'com.github.owl-93:DeterminateProgressView:v1.0'
+    implementation 'com.github.owl-93:DeterminateProgressView:v1.0'
 }
 ```
 
