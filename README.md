@@ -24,7 +24,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	implementation 'com.owl93:DeterminateProgressView:1.1-SNAPSHOT'
+	implementation 'com.github.owl-93:DeterminateProgressView:v1.0'
 }
 ```
 
