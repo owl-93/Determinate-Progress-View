@@ -8,6 +8,30 @@ It is built with Kotlin and supports heavy customization options and a convenien
   <img width="460" src="https://imgur.com/T68WT09.jpg">
 </p>
 
+## Example GIFS
+
+### General options
+<p align="center">
+    <img width="50%" alt="general options" src="https://thumbs.gfycat.com/WaterloggedEuphoricBluefintuna-size_restricted.gif"/>
+</p>
+
+### Styling options
+<p align="center">
+    <img width="50%" alt="style options" src="https://thumbs.gfycat.com/HappyEdibleGrassspider-size_restricted.gif"/>
+</p>
+
+### Text Styling options
+<p align="center">
+    <img width="50%" alt="text options" src="https://thumbs.gfycat.com/DeterminedAnguishedIndigobunting-size_restricted.gif"/>
+</p>
+
+## More Examples
+<p align="center">
+ <img width="33%" src="https://i.imgur.com/DxpBfgS.png" alt="general options"/>
+ <img width="33%" src="https://i.imgur.com/RcJfYGH.png" alt="style options"/>
+ <img width="33%" src="https://i.imgur.com/W4KsDGn.png" alt="text options" />
+</p>
+
 ## Progress Bar Attributes
 | Attribute                    | XML attr                   | XML Type | XML Values                                                                                                       | Kotlin field              | Kotlin Type            | Kotlin Values                      | Default Value         |
 |------------------------------|----------------------------|----------|------------------------------------------------------------------------------------------------------------------|---------------------------|------------------------|------------------------------------|-----------------------|
