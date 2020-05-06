@@ -9,21 +9,23 @@ It is built with Kotlin and supports heavy customization options and a convenien
 </p>
 
 ## Adding to your project
-### Add the JitPack repository in your project build.gradle
-```allprojects {
-   		repositories {
-   			...
-   			maven { url 'https://jitpack.io' }
-   		}
+1. Add the JitPack repository in your project build.gradle
+
+```gradle
+allprojects {
+   	repositories {
+   		...
+   		maven { url 'https://jitpack.io' }
    	}
+}
 ```
 
-### Add the version to your android dependencies in your app build.gradle
+2. Add the version to your android dependencies in your app build.gradle
 
-```
+```gradle
 dependencies {
-	        implementation 'com.owl93:DeterminateProgressView:1.1-SNAPSHOT'
-	}
+	implementation 'com.owl93:DeterminateProgressView:1.1-SNAPSHOT'
+}
 ```
 
 ## Example GIFS
