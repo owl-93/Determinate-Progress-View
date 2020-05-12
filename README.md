@@ -25,7 +25,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.owl-93:DeterminateProgressView:v1.1'
+    implementation 'com.github.owl-93:DeterminateProgressView:v1.2'
 }
 ```
 
@@ -60,6 +60,7 @@ dependencies {
 | Max Value                    | maxValue                   | float    | >0                                                                                                               | maxValue                  | Float                  | > 0f                               | 100f                  |
 | Stroke Width                 | strokeWidth                | dimen    | >0                                                                                                               | strokeWidth               | Float                  | > 0f                               | 20f                   |
 | Stroke Color                 | strokeColor                | color    | @color, #hexcolor                                                                                                | strokeColor               | Int                    | -                                  | @colorPrimary         |
+| Stroke End Style             | strokeEndStyle             | enum     | "square", "round"                                                                                                | strokeEnd                 | Paint.Cap              | -                                  | Paint.Cap.ROUND       |
 | Draw Track                   | drawTrack                  | boolean  | "true", "false"                                                                                                  | drawTrack                 | Boolean                | -                                  | true                  |
 | Track Color                  | trackColor                 | color    | @color, #hexcolor                                                                                                | trackColor                | Int                    | -                                  | @colorPrimary         |
 | Track Width                  | trackWidth                 | dimen    | @dimen, >= 0                                                                                                     | trackWidth                | Float                  | -                                  | strokeWidth/2         |
@@ -80,6 +81,7 @@ dependencies {
  - Max Value - the upper range of the progress
  - Stroke Width - the width of the progress bar
  - Stroke Color - the color of the progress bar (note that providing strokeGradientStartColor and strokeGradientEndColor will override this)
+ - Stroke End Style - the style to use for the end of the stroke, either a round end or a square end
  - Draw Track - whether or not to draw the track for the progress bar
  - Track Color - the color of the track
  - Track Width - the width of the track this can be wider than, equal to, or smaller than the stroke

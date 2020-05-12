@@ -59,7 +59,6 @@ class CircularProgressView: View {
 
     private var trackPaint = Paint().also {
         it.style = Paint.Style.STROKE
-        it.strokeCap = Paint.Cap.BUTT
         it.flags = Paint.ANTI_ALIAS_FLAG
         it.alpha = 0
     }
@@ -502,6 +501,7 @@ class CircularProgressView: View {
             trackPaint.let {
                 it.color = if(trackColor == 0) strokeColor else trackColor
                 it.strokeWidth = trackWidth
+                it.strokeCap = strokeEnd
                 it.alpha = if(trackAlpha == -1) DEFAULT_TRACK_ALPHA else trackAlpha
             }
             canvas.drawArc(maxStroke/2, maxStroke/2, minDimen-maxStroke/2, minDimen-maxStroke/2,
