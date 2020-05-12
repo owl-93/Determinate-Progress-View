@@ -76,14 +76,14 @@ class CircularProgressView: View {
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set maxvalue: $value")
+            //Log.d(TAG, "set maxvalue: $value")
         }
 
     var strokeColor: Int = DEFAULT_STROKE_COLOR
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set strokeColor: $value")
+            //Log.d(TAG, "set strokeColor: $value")
         }
 
     private var strokeGradientMode = false
@@ -92,7 +92,7 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set gradientStart: $value")
+            //Log.d(TAG, "set gradientStart: $value")
         }
 
     var gradientCenterColor: Int = 0
@@ -100,7 +100,7 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set gradientCenter: $value")
+            //Log.d(TAG, "set gradientCenter: $value")
         }
 
     var gradientEndColor: Int = 0
@@ -108,7 +108,7 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set gradientEnd: $value")
+            //Log.d(TAG, "set gradientEnd: $value")
         }
 
     var strokeGradientStyle: Gradient = DEFAULT_STK_GRAD_STYLE
@@ -116,7 +116,7 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set gradientStyle: $value")
+            //Log.d(TAG, "set gradientStyle: $value")
         }
 
     var strokeGradientLinearAngle: Int = DEFAULT_STK_GRAD_LINEAR_ANGLE
@@ -124,7 +124,7 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set strokeLinearAngle: $value")
+            //Log.d(TAG, "set strokeLinearAngle: $value")
         }
 
     var strokeGradientSize: StrokeGradient = DEFAULT_STK_GRAD_SIZE
@@ -132,21 +132,21 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set strokeRadialSize: $value")
+           //Log.d(TAG, "set strokeRadialSize: $value")
         }
 
     var drawTrack: Boolean = DEFAULT_DRAW_TRACK
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set drawTrack: $value")
+            //Log.d(TAG, "set drawTrack: $value")
         }
 
     var trackColor: Int = DEFAULT_STROKE_COLOR
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set trackColor: $value")
+            //Log.d(TAG, "set trackColor: $value")
 
         }
 
@@ -162,7 +162,7 @@ class CircularProgressView: View {
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set trackAlpha: $value")
+            //Log.d(TAG, "set trackAlpha: $value")
         }
 
     var strokeWidth: Float = DEFAULT_STROKE_WIDTH
@@ -170,7 +170,7 @@ class CircularProgressView: View {
             field = value
             regenerateStrokeShader()
             postInvalidate()
-            Log.d(TAG, "set strokeWidth: $value")
+            //Log.d(TAG, "set strokeWidth: $value")
         }
 
     var progress: Float = DEFAULT_MAX_VALUE
@@ -179,43 +179,43 @@ class CircularProgressView: View {
                 field = value
                 _progress = value
                 postInvalidate()
-                Log.d(TAG, "set progress: $value")
-            } else Log.d(TAG, "can't set progress when animating")
+                //Log.d(TAG, "set progress: $value")
+            } else Log.w(TAG, "can't set progress when animating")
         }
 
     var startingAngle: Int = DEFAULT_STARTING_ANGLE
         set(value) {
             field = value % 360
             postInvalidate()
-            Log.d(TAG, "set startingAngle: $value")
+            //Log.d(TAG, "set startingAngle: $value")
         }
 
     var direction: Direction = DEFAULT_DIRECTION
         set(value){
             field = value
             postInvalidate()
-            Log.d(TAG, "set direction: $value")
+            //Log.d(TAG, "set direction: $value")
         }
 
     var textEnabled: Boolean = DEFAULT_DRAW_TEXT
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textEnabled: $value")
+            //Log.d(TAG, "set textEnabled: $value")
         }
 
     var textSize: Float = DEFAULT_STROKE_WIDTH/2
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textSize: $value")
+            //Log.d(TAG, "set textSize: $value")
         }
 
     var textColor: Int = DEFAULT_STROKE_COLOR
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textColor: $value")
+            //Log.d(TAG, "set textColor: $value")
         }
 
     private var textGradientMode = false
@@ -223,35 +223,35 @@ class CircularProgressView: View {
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textGradientStart: $value")
+           //Log.d(TAG, "set textGradientStart: $value")
         }
 
     var textGradientCenterColor: Int = 0
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textGradientCenter: $value")
+            //Log.d(TAG, "set textGradientCenter: $value")
         }
 
     var textGradientEndColor: Int = 0
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textGradientEnd: $value")
+            //Log.d(TAG, "set textGradientEnd: $value")
         }
 
     var textGradientStyle: Gradient = DEFAULT_TXT_GRAD_STYLE
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textGradientStyle: $value")
+            //Log.d(TAG, "set textGradientStyle: $value")
         }
 
     var textGradientLinearAngle: Int = DEFAULT_TXT_LINEAR_ANGLE
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textGradientLinearAngle: $value")
+            //Log.d(TAG, "set textGradientLinearAngle: $value")
         }
 
 
@@ -259,21 +259,21 @@ class CircularProgressView: View {
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textGradientSize: $value")
+            //Log.d(TAG, "set textGradientSize: $value")
         }
 
     var textFormat: TextFormat = DEFAULT_TEXT_FORMAT
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set textFormat: $value")
+            //Log.d(TAG, "set textFormat: $value")
         }
 
     var text: String? = null
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set text: $value")
+            //Log.d(TAG, "set text: $value")
         }
 
     var animationDuration: Long = DEFAULT_ANIMATION_DURATION
@@ -545,14 +545,14 @@ class CircularProgressView: View {
                 invalidate()
                 isAnimating = it.animatedFraction != 1f
                 if(!isAnimating) {
-                    Log.d(TAG, "isAnimating: $isAnimating")
+                    //Log.d(TAG, "isAnimating: $isAnimating")
                     progress = _progress
                     animationListener?.onAnimationEnd()
                 }
             }
         }.start()
         isAnimating = true
-        Log.d(TAG, "isAnimating: $isAnimating")
+        //Log.d(TAG, "isAnimating: $isAnimating")
         animationListener?.onAnimationStart(toValue, _progress)
     }
 
