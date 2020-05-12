@@ -155,7 +155,7 @@ class CircularProgressView: View {
         set(value) {
             field = value
             postInvalidate()
-            Log.d(TAG, "set trackWidth: $value")
+            //Log.d(TAG, "set trackWidth: $value")
 
         }
 
@@ -314,7 +314,7 @@ class CircularProgressView: View {
             strokeWidth = attrs.getDimension(R.styleable.CircularProgressView_strokeWidth, DEFAULT_STROKE_WIDTH)
             strokeColor = attrs.getColor(R.styleable.CircularProgressView_strokeColor, DEFAULT_STROKE_COLOR)
             drawTrack = attrs.getBoolean(R.styleable.CircularProgressView_drawTrack, DEFAULT_DRAW_TRACK)
-            trackWidth = attrs.getFloat(R.styleable.CircularProgressView_trackWidth, DEFAULT_STROKE_WIDTH/2)
+            trackWidth = attrs.getDimension(R.styleable.CircularProgressView_trackWidth, DEFAULT_STROKE_WIDTH/2)
             trackColor = attrs.getColor(R.styleable.CircularProgressView_trackColor, DEFAULT_STROKE_COLOR)
             trackAlpha = attrs.getInt(R.styleable.CircularProgressView_trackAlpha, -1)
             gradientStartColor = attrs.getColor(R.styleable.CircularProgressView_gradientStartColor, 0)
