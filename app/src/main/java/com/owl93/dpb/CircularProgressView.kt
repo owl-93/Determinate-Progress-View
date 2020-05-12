@@ -308,6 +308,7 @@ class CircularProgressView: View {
             strokeColor = attrs.getColor(R.styleable.CircularProgressView_strokeColor, DEFAULT_STROKE_COLOR)
             drawTrack = attrs.getBoolean(R.styleable.CircularProgressView_drawTrack, DEFAULT_DRAW_TRACK)
             trackWidth = attrs.getFloat(R.styleable.CircularProgressView_trackWidth, DEFAULT_STROKE_WIDTH/2)
+            trackColor = attrs.getColor(R.styleable.CircularProgressView_trackColor, DEFAULT_STROKE_COLOR)
             trackAlpha = attrs.getInt(R.styleable.CircularProgressView_trackAlpha, -1)
             gradientStartColor = attrs.getColor(R.styleable.CircularProgressView_gradientStartColor, 0)
             gradientCenterColor = attrs.getColor(R.styleable.CircularProgressView_gradientCenterColor, 0)
@@ -322,7 +323,7 @@ class CircularProgressView: View {
                 StrokeGradient.STROKE_ONLY
             else StrokeGradient.VIEW
 
-            progress = attrs.getFloat(R.styleable.CircularProgressView_progress, DEFAULT_MAX_VALUE)
+            progress = attrs.getFloat(R.styleable.CircularProgressView_progress, DEFAULT_MAX_VALUE/2)
             startingAngle = attrs.getInt(R.styleable.CircularProgressView_startingAngle, DEFAULT_STARTING_ANGLE) % 360
             text = attrs.getString(R.styleable.CircularProgressView_text)
             textEnabled = attrs.getBoolean(R.styleable.CircularProgressView_textEnabled, !text.isNullOrEmpty())
