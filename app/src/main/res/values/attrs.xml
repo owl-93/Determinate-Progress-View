@@ -5,6 +5,11 @@
         <attr name="maxValue" format="float"/>
         <attr name="strokeWidth" format="dimension"/>
         <attr name="strokeColor" format="color"/>
+        <attr name="strokeEndStyle" format="enum">
+            <enum name="square" value="0"/>
+            <enum name="round" value="1" />
+        </attr>
+
         <attr name="progress" format="float"/>
         <attr name="startingAngle" format="integer"/>
         <attr name="drawTrack" format="boolean"/>
@@ -74,6 +79,7 @@
             <enum name="view" value="0"/>
             <enum name="text_only" value="1" />
         </attr>
+
 
     </declare-styleable>
 

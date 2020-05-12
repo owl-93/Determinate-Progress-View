@@ -1,5 +1,6 @@
 package com.owl93.dpb
 
+import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
@@ -22,6 +23,7 @@ class CircularProgressView: View {
     private val DEFAULT_STARTING_ANGLE: Int = 0
     private val DEFAULT_DIRECTION: Direction = Direction.CW
     private val DEFAULT_STROKE_WIDTH: Float = 20f
+    private val DEFAULT_STROKE_CAP: Paint.Cap = Paint.Cap.ROUND
     private val DEFAULT_DRAW_TRACK: Boolean = true
 
     private val DEFAULT_MAX_VALUE: Float = 100f
@@ -51,7 +53,7 @@ class CircularProgressView: View {
     //pre-alloc vars/vals that are updated and used in each frame
     private var strokePaint = Paint().also{
         it.style = Paint.Style.STROKE
-        it.strokeCap = Paint.Cap.BUTT
+        it.strokeCap = Paint.Cap.ROUND
         it.flags = Paint.ANTI_ALIAS_FLAG
     }
 
@@ -171,6 +173,12 @@ class CircularProgressView: View {
             regenerateStrokeShader()
             postInvalidate()
             //Log.d(TAG, "set strokeWidth: $value")
+        }
+
+    var strokeEnd: Paint.Cap = DEFAULT_STROKE_CAP
+        set(value) {
+            field = value
+            postInvalidate()
         }
 
     var progress: Float = DEFAULT_MAX_VALUE
@@ -317,6 +325,10 @@ class CircularProgressView: View {
                 1 -> Gradient.STYLE_LINEAR
                 2 -> Gradient.STYLE_RADIAL
                 else -> Gradient.STYLE_SWEEP
+            }
+            strokeEnd = when(attrs.getInt(R.styleable.CircularProgressView_strokeEndStyle, 0)) {
+                1 -> Paint.Cap.BUTT
+                else -> Paint.Cap.ROUND
             }
             strokeGradientLinearAngle = attrs.getInt(R.styleable.CircularProgressView_strokeGradient_linearAngle, 0)
             strokeGradientSize = if(attrs.getInt(R.styleable.CircularProgressView_strokeGradientSize, 1) == 1)
