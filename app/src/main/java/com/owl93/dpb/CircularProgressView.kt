@@ -581,12 +581,13 @@ class CircularProgressView: View {
     companion object {
         private const val TAG = "CircularProgressView"
         const val DEFAULT_TRACK_ALPHA: Int = 125
-        private val interpolators = arrayOf(DecelerateInterpolator(),
+        private val interpolators = arrayOf(
+            DecelerateInterpolator(),
             AccelerateInterpolator(),
             AccelerateDecelerateInterpolator(),
             LinearInterpolator(),
             AnticipateInterpolator(),
-            AnticipateOvershootInterpolator(),
+            OvershootInterpolator(),
             AnticipateOvershootInterpolator()
         )
     }
