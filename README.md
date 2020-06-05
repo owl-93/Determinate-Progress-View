@@ -25,7 +25,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.owl-93:DeterminateProgressView:v1.3.1'
+    implementation 'com.github.owl-93:DeterminateProgressView:v1.4.0'
 }
 ```
 
@@ -72,7 +72,7 @@ dependencies {
 | Stroke Gradient Start Color  | gradientStartColor         | color    | @color, #hexcolor                                                                                                | gradientStartColor        | Int                    | -                                  | -                     |
 | Stroke Gradient Center Color | gradientCenterColor        | color    | @color, #hexcolor                                                                                                | gradientCenterColor       | Int                    | -                                  | -                     |
 | Stroke Gradient End Color    | gradientEndColor           | color    | @color, #hexcolor                                                                                                | gradientEndColor          | Int                    | -                                  | -                     |
-| Stroke Gradient Style        | strokeGradientStyle        | enum     | "sweep", "linear", "radial", "candy_cane"                                                                        D| strokeGradientStyle       | Gradient               | Gradient                           | Gradient.STYLE_SWEEP  |
+| Stroke Gradient Style        | strokeGradientStyle        | enum     | "sweep", "linear", "radial", "candy_cane"                                                                        | strokeGradientStyle       | Gradient               | Gradient                           | Gradient.STYLE_SWEEP  |
 | Stroke Gradient Linear Angle | strokeGradient_linearAngle | integer  | "0", "45", "90", "135", "180", "225", "270", "315"                                                               | strokeGradientLinearAngle | Int                    | 0, 45, 90, 135, 180, 225, 270, 315 | 0                     |
 | Stroke Gradient Radial Size  | strokeGradientSize         | enum     | "view", "stroke_only"                                                                                            | strokeGradientSize        | StrokeGradient         | StrokeGradient                     | StrokeGradient.VIEW   |
 
@@ -93,7 +93,7 @@ dependencies {
  - Stroke Gradient Start Color - the color to use at the beginning of a stroke gradient. MANDATORY IF USING A STROKE GRADIENT
  - Stroke Gradient Center Color - the color to use in the middle of a stroke gradient. OPTIONAL
  - Stroke Gradient End Color - the color to use at the beginning of a stroke gradient. MANDATORY IF USING A STROKE GRADIENT
- - Stroke Gradient Style - the style of the gradient to apply to the stroke of the view, if using Gradient.SWEEP with only a start and end color, the start color will be centered at 12:00, if using Graident.SWEEP with a start, center, and end color, the start color will start at 12:00
+ - Stroke Gradient Style - the style of the gradient to apply to the stroke of the view, if using Gradient.SWEEP with only a start and end color, the start color will be centered at 12:00, if using Gradient.SWEEP with a start, center, and end color, the start color will start at 12:00. Note that the candy cane style gradient is experimental and works best with 3 colors, with gradient size set to stroke_only, and with a medium size gradient.
  - Stroke Gradient Linear Angle - if using Gradient.LINEAR or "linear" for the stroke gradient, the angle at which to apply the gradient across the stroke
  - Stroke Gradient Radial Size - if using Gradient.Radial or "radial" for the stroke gradient, this determines if the radial stroke is scaled to fit the whole gradient within the stroke, or if the gradient colors should be distributed across the size of the view. Note that when using this mode, only the colors masked by the stroke will be visible. See screenshots for clarification.
 
@@ -130,6 +130,12 @@ dependencies {
 
 <p align="center">
   <img width="100%" src="https://imgur.com/lSTf03G.jpg">
+</p>
+
+Experimental Candy cane gradients
+<p align="center">
+  <img width="46%" src="https://i.imgur.com/1Dz6Jgq.jpg">
+  <img width="48%" src="https://i.imgur.com/XOBDAJh.jpg">
 </p>
 
 <p align="center">
