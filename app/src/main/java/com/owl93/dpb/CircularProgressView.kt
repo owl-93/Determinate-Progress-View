@@ -249,8 +249,10 @@ class CircularProgressView: View {
 
     var textGradientStyle: Gradient = DEFAULT_TXT_GRAD_STYLE
         set(value) {
-            field = value
-            postInvalidate()
+            if(value != Gradient.STYLE_CANDY_CANE) {
+                field = value
+                postInvalidate()
+            }else { Log.w(TAG, "Candy cane gradient not supported on text") }
             //Log.d(TAG, "set textGradientStyle: $value")
         }
 
@@ -285,7 +287,7 @@ class CircularProgressView: View {
 
     var animationDuration: Long = DEFAULT_ANIMATION_DURATION
     var animationInterpolator: BaseInterpolator = interpolators[DEFAULT_INTERPOLATOR_IDX]
-
+    var bounds = Rect()
 
     //Constructors
     constructor(context: Context): super(context) {
@@ -323,6 +325,7 @@ class CircularProgressView: View {
             strokeGradientStyle = when(attrs.getInt(R.styleable.CircularProgressView_strokeGradientStyle, 0)){
                 1 -> Gradient.STYLE_LINEAR
                 2 -> Gradient.STYLE_RADIAL
+                3 -> Gradient.STYLE_CANDY_CANE
                 else -> Gradient.STYLE_SWEEP
             }
             strokeEnd = when(attrs.getInt(R.styleable.CircularProgressView_strokeEndStyle, 0)) {
@@ -429,12 +432,12 @@ class CircularProgressView: View {
 
     private fun regenerateStrokeShader() {
         if (minDimen == 0f || !strokeGradientMode) return
-        val c = minDimen/2
+        val c = bounds.width()/2f
         val details = determineGradientDetails(gradientStartColor, gradientCenterColor, gradientEndColor, strokeGradientStyle)
         strokeShader = when (strokeGradientStyle) {
             Gradient.STYLE_SWEEP -> SweepGradient(c, c, details.first, details.second)
             Gradient.STYLE_LINEAR -> {
-                val points = computeLinearAngle(strokeGradientLinearAngle, RectF(0f, 0f, minDimen, minDimen))
+                val points = computeLinearAngle(strokeGradientLinearAngle, RectF(bounds))
                 LinearGradient(points[0], points[1], points[2], points[3], details.first, null, Shader.TileMode.CLAMP)
             }
             Gradient.STYLE_RADIAL-> {
@@ -442,7 +445,14 @@ class CircularProgressView: View {
                     c - ((trackWidth - strokeWidth)/2)
                 }
                 val positions = computeStrokeRadialPositions(end, strokeWidth, details.first)
-                RadialGradient(c, c, end, details.first, positions, Shader.TileMode.CLAMP)
+                RadialGradient(bounds.centerX().toFloat(), bounds.centerX().toFloat(), end, details.first, positions, Shader.TileMode.CLAMP)
+            }
+            Gradient.STYLE_CANDY_CANE-> {
+                val end = if(!drawTrack || strokeWidth >= trackWidth) c else {
+                    c - ((trackWidth - strokeWidth)/2)
+                }
+                val positions = computeStrokeRadialPositions(end, strokeWidth, details.first)
+                RadialGradient(bounds.centerX().toFloat() + strokeWidth/4, bounds.centerX().toFloat() + strokeWidth, end, details.first, positions, Shader.TileMode.CLAMP)
             }
         }
     }
@@ -469,15 +479,46 @@ class CircularProgressView: View {
         if(textGradientMode) {
             textShader = when(textGradientStyle) {
                 Gradient.STYLE_SWEEP -> SweepGradient(c, c, details.first, details.second)
-                Gradient.STYLE_LINEAR -> {
+                Gradient.STYLE_RADIAL -> RadialGradient(c, c, if(textGradientSize == TextGradient.TEXT_ONLY)
+                    max(textBounds.width()/2, textBounds.height()/2).toFloat() else minDimen, details.first, null, Shader.TileMode.CLAMP)
+                else -> {
                     val tb = getTextGradientBounds(textGradientSize)
                     val points = computeLinearAngle(textGradientLinearAngle, tb)
                     LinearGradient(points[0], points[1], points[2], points[3], details.first, null, Shader.TileMode.CLAMP)
                 }
-                Gradient.STYLE_RADIAL -> RadialGradient(c, c, if(textGradientSize == TextGradient.TEXT_ONLY)
-                    max(textBounds.width()/2, textBounds.height()/2).toFloat() else minDimen, details.first, null, Shader.TileMode.CLAMP)
             }
         }
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        Log.d(TAG, "onMeasure w ${MeasureSpec.toString(widthMeasureSpec)}")
+        Log.d(TAG, "onMeasure h ${MeasureSpec.toString(heightMeasureSpec)}")
+        val desiredWidth = suggestedMinimumWidth + paddingLeft + paddingRight
+        val desiredHeight = suggestedMinimumHeight + paddingTop + paddingBottom
+        val calcWidth = measureDimen(desiredWidth, widthMeasureSpec)
+        val calcHeight = measureDimen(desiredHeight, widthMeasureSpec)
+        minDimen = min(calcWidth, calcHeight).toFloat()
+
+        bounds.let {
+            it.left = this.left + paddingLeft
+            it.top = this.top + paddingTop
+            it.right =  (minDimen - paddingRight).toInt()
+            it.bottom = (minDimen - paddingBottom).toInt()
+        }
+    }
+
+    private fun measureDimen(desiredSize: Int, measureSpec: Int) : Int {
+        var result = 0
+        val mode = MeasureSpec.getMode(measureSpec)
+        val size = MeasureSpec.getSize(measureSpec)
+        result = when(mode) {
+            MeasureSpec.EXACTLY -> size
+            MeasureSpec.AT_MOST -> min(result, size)
+            else -> desiredSize
+        }
+        if(result < desiredSize) Log.w(TAG, "View too small, may be clipped")
+        return result
     }
 
 
@@ -504,16 +545,20 @@ class CircularProgressView: View {
                 it.strokeCap = strokeEnd
                 it.alpha = if(trackAlpha == -1) DEFAULT_TRACK_ALPHA else trackAlpha
             }
-            canvas.drawArc(maxStroke/2, maxStroke/2, minDimen-maxStroke/2, minDimen-maxStroke/2,
-                    0f, 360f, false, trackPaint)
+            canvas.drawArc(
+                bounds.left + maxStroke/2,
+                bounds.top + maxStroke/2,
+                bounds.right - maxStroke/2,
+                bounds.bottom - maxStroke/2,
+                0f, 360f, false, trackPaint)
 
         }
 
         canvas.drawArc(
-            maxStroke/2,
-            maxStroke/2,
-            minDimen-maxStroke/2,
-            minDimen-maxStroke/2,
+            bounds.left + maxStroke/2,
+            bounds.top + maxStroke/2,
+            bounds.right - maxStroke/2,
+            bounds.bottom - maxStroke/2,
             startingAngle, degrees, false, strokePaint
         )
 
@@ -529,7 +574,7 @@ class CircularProgressView: View {
                 it.shader = if(textGradientMode) textShader else null
             }
             val c = minDimen/2
-            canvas.drawText(text, c, c + textBounds.height()/2, textPaint)
+            canvas.drawText(text, bounds.centerX().toFloat(), c + textBounds.height()/2, textPaint)
         }
     }
 
@@ -615,6 +660,7 @@ enum class Gradient {
     STYLE_SWEEP,
     STYLE_RADIAL,
     STYLE_LINEAR,
+    STYLE_CANDY_CANE
 }
 
 enum class StrokeGradient {

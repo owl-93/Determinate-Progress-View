@@ -57,6 +57,7 @@
             <enum name="sweep" value="0"/>
             <enum name="linear" value="1"/>
             <enum name="radial" value="2"/>
+            <enum name="candy_cane" value="3" />
         </attr>
 
         <attr name="strokeGradient_linearAngle" format="integer"/>
