@@ -13,7 +13,7 @@
         app:trackAlpha="25"
         android:padding="10dp"
         app:progress="95"
-        app:strokeWidth="50dp"
+        app:strokeWidth="20dp"
         app:textEnabled="true"
         app:textSize="32sp"
         app:gradientStartColor="@color/blue"
