@@ -42,7 +42,7 @@
 
         <attr name="progressAnimationDuration" format="integer"/>
         <attr name="animationInterpolator" format="enum">
-            <enum name="declerate" value="0"/>
+            <enum name="decelerate" value="0"/>
             <enum name="accelerate" value="1"/>
             <enum name="accelerate_decelerate" value="2"/>
             <enum name="linear" value="3"/>

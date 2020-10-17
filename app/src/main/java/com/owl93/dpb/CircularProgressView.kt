@@ -1,6 +1,5 @@
 package com.owl93.dpb
 
-import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
@@ -9,11 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.animation.*
 import androidx.core.content.ContextCompat
-import kotlin.math.max
-import kotlin.math.min
-
-
-
+import kotlin.math.*
 
 class CircularProgressView: View {
     //default values
@@ -492,8 +487,6 @@ class CircularProgressView: View {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        Log.d(TAG, "onMeasure w ${MeasureSpec.toString(widthMeasureSpec)}")
-        Log.d(TAG, "onMeasure h ${MeasureSpec.toString(heightMeasureSpec)}")
         val desiredWidth = suggestedMinimumWidth + paddingLeft + paddingRight
         val desiredHeight = suggestedMinimumHeight + paddingTop + paddingBottom
         val calcWidth = measureDimen(desiredWidth, widthMeasureSpec)
