@@ -10,6 +10,15 @@ import android.view.animation.*
 import androidx.core.content.ContextCompat
 import kotlin.math.*
 
+fun View.getBoundaries(bounds: RectF) {
+    bounds.let {
+        it.left = paddingLeft.toFloat()
+        it.top = paddingTop.toFloat()
+        it.right = (width - paddingRight).toFloat()
+        it.bottom = (height - paddingBottom).toFloat()
+    }
+}
+
 class CircularProgressView: View {
     //default values
     private val DEFAULT_STROKE_COLOR: Int = ContextCompat.getColor(context, R.color.teal)
@@ -41,6 +50,7 @@ class CircularProgressView: View {
 
     private var _progress: Float = DEFAULT_MAX_VALUE
 
+    private var bounds: RectF = RectF()
     private var minDimen = 0f
     private var textWidth = 0f
     private var textHeight = 0f
@@ -282,7 +292,6 @@ class CircularProgressView: View {
 
     var animationDuration: Long = DEFAULT_ANIMATION_DURATION
     var animationInterpolator: BaseInterpolator = interpolators[DEFAULT_INTERPOLATOR_IDX]
-    var bounds = Rect()
 
     //Constructors
     constructor(context: Context): super(context) {
@@ -484,21 +493,25 @@ class CircularProgressView: View {
             }
         }
     }
+//
+//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+//        val desiredWidth = suggestedMinimumWidth + paddingLeft + paddingRight
+//        val desiredHeight = suggestedMinimumHeight + paddingTop + paddingBottom
+//        val calcWidth = measureDimen(desiredWidth, widthMeasureSpec)
+//        val calcHeight = measureDimen(desiredHeight, widthMeasureSpec)
+//        minDimen = min(calcWidth, calcHeight).toFloat()
+//        setMeasuredDimension(minDimen, minDimen)
+//    }
+
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val desiredWidth = suggestedMinimumWidth + paddingLeft + paddingRight
         val desiredHeight = suggestedMinimumHeight + paddingTop + paddingBottom
         val calcWidth = measureDimen(desiredWidth, widthMeasureSpec)
         val calcHeight = measureDimen(desiredHeight, widthMeasureSpec)
-        minDimen = min(calcWidth, calcHeight).toFloat()
-
-        bounds.let {
-            it.left = this.left + paddingLeft
-            it.top = this.top + paddingTop
-            it.right =  (minDimen - paddingRight).toInt()
-            it.bottom = (minDimen - paddingBottom).toInt()
-        }
+        val minDimen = min(calcWidth, calcHeight)
+        setMeasuredDimension(minDimen, minDimen)
     }
 
     private fun measureDimen(desiredSize: Int, measureSpec: Int) : Int {
@@ -519,14 +532,7 @@ class CircularProgressView: View {
         if(canvas == null) return
         determineGradientStatus()
         minDimen = min(width, height).toFloat()
-
-        bounds.let {
-            it.left = this.left + paddingLeft
-            it.top = this.top + paddingTop
-            it.right =  (minDimen - paddingRight).toInt()
-            it.bottom = (minDimen - paddingBottom).toInt()
-        }
-
+        getBoundaries(bounds)
         regenerateStrokeShader()
         strokePaint.let {
             it.color = strokeColor
