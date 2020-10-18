@@ -520,6 +520,13 @@ class CircularProgressView: View {
         determineGradientStatus()
         minDimen = min(width, height).toFloat()
 
+        bounds.let {
+            it.left = this.left + paddingLeft
+            it.top = this.top + paddingTop
+            it.right =  (minDimen - paddingRight).toInt()
+            it.bottom = (minDimen - paddingBottom).toInt()
+        }
+
         regenerateStrokeShader()
         strokePaint.let {
             it.color = strokeColor
