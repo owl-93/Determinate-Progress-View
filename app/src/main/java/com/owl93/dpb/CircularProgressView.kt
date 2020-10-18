@@ -493,17 +493,6 @@ class CircularProgressView: View {
             }
         }
     }
-//
-//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-//        val desiredWidth = suggestedMinimumWidth + paddingLeft + paddingRight
-//        val desiredHeight = suggestedMinimumHeight + paddingTop + paddingBottom
-//        val calcWidth = measureDimen(desiredWidth, widthMeasureSpec)
-//        val calcHeight = measureDimen(desiredHeight, widthMeasureSpec)
-//        minDimen = min(calcWidth, calcHeight).toFloat()
-//        setMeasuredDimension(minDimen, minDimen)
-//    }
-
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val desiredWidth = suggestedMinimumWidth + paddingLeft + paddingRight
