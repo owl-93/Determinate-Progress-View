@@ -600,6 +600,8 @@ class CircularProgressView: View {
                     //Log.d(TAG, "isAnimating: $isAnimating")
                     progress = _progress
                     animationListener?.onAnimationEnd()
+                } else {
+                    animationListener?.onAnimationProgress(_progress)
                 }
             }
         }.start()
@@ -638,6 +640,7 @@ class CircularProgressView: View {
 interface DeterminateProgressViewListener {
     fun onAnimationStart(from: Float, to: Float)
     fun onAnimationEnd()
+    fun onAnimationProgress(progress: Float)
 }
 
 enum class TextFormat {
