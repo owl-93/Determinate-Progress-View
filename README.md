@@ -1,5 +1,6 @@
 # DeterminateProgressView
 [![](https://jitpack.io/v/owl-93/Determinate-Progress-View.svg)](https://jitpack.io/v/owl-93/Determinate-Progress-View.svg)
+
 This view is meant to be a customizable determinate progress view like the standard android indeterminate progress bar, but highly customizable
 
 It is built with Kotlin and supports heavy customization options and a convenient way to animate progress automatically. You can use XML and Kotlin/Java functions to customize it. You can check out the very robust [demo app over here](https://github.com/owl-93/Determinate-Progress-View-Demo)
